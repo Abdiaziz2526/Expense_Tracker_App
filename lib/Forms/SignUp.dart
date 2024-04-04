@@ -18,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Register Here',
+                    'Register Here!',
                     style: TextStyle(
                       color: Color(0xff2A50BA),
                       fontSize: 30.0,
