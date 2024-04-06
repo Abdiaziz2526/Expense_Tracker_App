@@ -43,9 +43,7 @@ class _OnboardPageState extends State<OnboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         body: Stack(
           children: [
             PageView.builder(
@@ -135,7 +133,7 @@ class _OnboardPageState extends State<OnboardPage> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }
