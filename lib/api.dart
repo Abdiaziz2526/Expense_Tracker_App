@@ -22,4 +22,23 @@ class Api {
       return response.body;
     }
   }
+
+  Future<dynamic> registerUser(String fullName, String username, String password, String address) async {
+    var data = {
+      "action": "registerUser",
+      "fullName":fullName,
+      "userName": username,
+      "userPassword": password,
+      "userAddr":address,
+    };
+    var response = await http.post(Uri.parse(keEndPoint), body: data);
+    if (response.statusCode == 200) {
+      // print(response.body);
+      final decodedData = jsonDecode(response.body);
+      // print(decodedData);
+      return decodedData;
+    } else {
+      return response.body;
+    }
+  }
 }

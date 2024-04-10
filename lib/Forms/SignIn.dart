@@ -25,10 +25,6 @@ class _LogingState extends State<Loging> {
 
   bool _validateuserpass = false;
 
-  bool isValiduser = false;
-
-  var isValiduserText = "";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,7 +130,7 @@ class _LogingState extends State<Loging> {
                         //debugPrint('Invalid username or Password');
                         setState(() {
                           _showSpinner = false;
-                         Get.snackbar("Error", "Invalid username or Password", snackPosition: SnackPosition.TOP, backgroundColor: Colors.red,colorText: Colors.white);
+                        //  Get.snackbar("Error", "Invalid username or Password", snackPosition: SnackPosition.TOP, backgroundColor: Colors.red,colorText: Colors.white);
                         });
                       }
                     },
