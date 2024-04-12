@@ -1,3 +1,8 @@
+import 'package:expense_tracker/Home/BottomNavigators/Setting/Budget/Budget_Setting.dart';
+import 'package:expense_tracker/Home/BottomNavigators/Setting/Expense%20Category/Expense_Category.dart';
+import 'package:expense_tracker/Home/BottomNavigators/Setting/Income%20Category/Income_Cate.dart';
+import 'package:expense_tracker/Home/BottomNavigators/Setting/Language/Language.dart';
+import 'package:expense_tracker/Home/BottomNavigators/Setting/Style/Style.dart';
 import 'package:flutter/material.dart';
 
 class HomeMore extends StatefulWidget {
@@ -13,6 +18,7 @@ class _HomeMoreState extends State<HomeMore> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Color(0xff2A50BA),
           elevation: 0,
@@ -21,220 +27,112 @@ class _HomeMoreState extends State<HomeMore> {
         body: Column(
           children: [  
             SizedBox(height: 15,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           Container(
+             child: ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>IncomeCategory()));
+             }, 
+             style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0
+             ),
+             child: Row(
               children: [
-                Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.settings
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Configration", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
+                SizedBox(width: 10,),
+                Text("Income Category setting",
+                style: TextStyle(
+                  color: Colors.grey, fontSize: 22, fontWeight: FontWeight.w400
                 ),
-                 Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.account_balance_wallet
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Accounts", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
-                ),
-                 Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                   // border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.password
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("PassCode", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
-                ),
-               
-               
+                )
               ],
-            ),
-            SizedBox(height: 12,),
-             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             )
+             ),
+           ),
+           SizedBox(height: 6,),
+           Container(
+             child: ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ExpenseCategory()));
+             }, 
+             style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0
+             ),
+             child: Row(
               children: [
-                Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.style
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Style", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
+                SizedBox(width: 10,),
+                Text("Expense Category setting",
+                style: TextStyle(
+                  color: Colors.grey, fontSize: 22, fontWeight: FontWeight.w400
                 ),
-                 Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.computer
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("PC manager", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
-                ),
-                 Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.backup
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Backup", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
-                ),
-               
-               
+                )
               ],
+             )
+             ),
+           ),
+           SizedBox(height: 6,),
+           Container(
+             child: ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>BudgetSett()));
+             }, 
+             style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0
+             ),
+             child: Row(
+              children: [
+                SizedBox(width: 10,),
+                Text("Budget setting",
+                style: TextStyle(
+                  color: Colors.grey, fontSize: 22, fontWeight: FontWeight.w400
+                ),
+                )
+              ],
+             )
+             ),
+           ),
+           SizedBox(height: 6,),
+           Container(
+             child: ElevatedButton(onPressed: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Langauge()));
 
-            ),
-            SizedBox(height: 12,),
-             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             }, 
+             style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0
+             ),
+             child: Row(
               children: [
-                Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.feedback
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Feedback", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
+                SizedBox(width: 10,),
+                Text("Language",
+                style: TextStyle(
+                  color: Colors.grey, fontSize: 22, fontWeight: FontWeight.w400
                 ),
-                 Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                   // border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.help
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Help", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
-                ),
-                 Container(
-                  height: 95, width: 120,
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Color(0xff2A50BA)),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: TextButton(onPressed: (){}, 
-                  child: Column(
-                    children: [
-                      Icon(Icons.recommend
-                      ,size: 30, color: Color(0xff2A50BA),
-                      ),
-                      SizedBox(height: 5,),
-                      Text("Recomand", style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w400,
-                        color: Color(0xff2A50BA)
-                      ),),
-                    ],
-                  )
-                  ),
-                ),
-               
-               
+                )
               ],
+             )
+             ),
+           ),
+            SizedBox(height: 6,),
+           Container(
+             child: ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>StyleSett()));
+             }, 
+             style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white,
+              elevation: 0
+             ),
+             child: Row(
+              children: [
+                SizedBox(width: 10,),
+                Text("Style",
+                style: TextStyle(
+                  color: Colors.grey, fontSize: 22, fontWeight: FontWeight.w400
+                ),
+                )
+              ],
+             )
+             ),
+           )
 
-            ),
           ],
         
         ),

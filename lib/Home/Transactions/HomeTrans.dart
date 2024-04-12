@@ -123,7 +123,4 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildTabContent(String text) {
-    return Center(child: Text(text));
-  }
 }
