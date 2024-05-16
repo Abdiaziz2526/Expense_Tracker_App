@@ -4,9 +4,12 @@ import 'package:expense_tracker/Home/Transactions/Monthly.dart';
 import 'package:expense_tracker/Home/Transactions/Summery.dart';
 import 'package:expense_tracker/Home/Transactions/weekly.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final String userID;
+
+  HomeScreen({Key? key, required this.userID}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -36,9 +39,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: DefaultTabController(
+    return Scaffold(
+      // debugShowCheckedModeBanner: false,
+      body: DefaultTabController(
         length: 4,
         child: Scaffold(
           appBar: AppBar(
@@ -54,7 +57,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     tabs: [
                       Tab(text: 'Daily'),
                       Tab(text: 'Monthly'),
-                      Tab(text: 'Weekly'), // Changed from 'Calendar' to 'Weekly'
+                      Tab(
+                          text:
+                              'Weekly'), // Changed from 'Calendar' to 'Weekly'
                       Tab(text: 'Summary'),
                     ],
                   ),
@@ -68,28 +73,40 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                           children: [
                             Text(
                               'Income',
-                              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
                             ),
-                            Text('\$$income', style: TextStyle(color: Colors.white)),
+                            Text('\$$income',
+                                style: TextStyle(color: Colors.white)),
                           ],
                         ),
                       ),
                       Column(
-                        children: [ 
+                        children: [
                           Text(
                             'Expense',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
-                          Text('\$$expenses', style: TextStyle(color: Colors.white)),
+                          Text('\$$expenses',
+                              style: TextStyle(color: Colors.white)),
                         ],
                       ),
                       Column(
                         children: [
                           Text(
                             'Total',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
-                          Text('\$$total', style: TextStyle(color: Colors.white)),
+                          Text('\$$total',
+                              style: TextStyle(color: Colors.white)),
                         ],
                       ),
                     ],
@@ -113,7 +130,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Creating()));
+              Get.to(() => Creating(userID: widget.userID));
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => Creating()));
             },
             child: Icon(Icons.add),
             backgroundColor: Color(0xff2A50BA),

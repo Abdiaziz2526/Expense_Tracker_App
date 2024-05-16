@@ -118,19 +118,24 @@ class _LogingState extends State<Loging> {
                             await obj.checkuserLogin(user, password);
                         print(result.toString());
                         if (result['status']) {
-                           Get.to(() => BottomNav());
-                           setState(() {});
-                           _showSpinner = false;
+                          print(result['Message'][0]["userid"]);
+                          Get.to(() => BottomNav(
+                              userID: result['Message'][0]["userid"]));
+                          setState(() {});
+                          _showSpinner = false;
                         } else {
                           setState(() {});
                           _showSpinner = false;
-                          Get.snackbar("Error", "Invalid username or Password", snackPosition: SnackPosition.TOP, backgroundColor: Colors.red,colorText: Colors.white);
+                          Get.snackbar("Error", "Invalid username or Password",
+                              snackPosition: SnackPosition.TOP,
+                              backgroundColor: Colors.red,
+                              colorText: Colors.white);
                         }
                       } else {
                         //debugPrint('Invalid username or Password');
                         setState(() {
                           _showSpinner = false;
-                        //  Get.snackbar("Error", "Invalid username or Password", snackPosition: SnackPosition.TOP, backgroundColor: Colors.red,colorText: Colors.white);
+                          //  Get.snackbar("Error", "Invalid username or Password", snackPosition: SnackPosition.TOP, backgroundColor: Colors.red,colorText: Colors.white);
                         });
                       }
                     },
